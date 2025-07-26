@@ -2,6 +2,7 @@ import { Search, MapPin, ShoppingCart, Globe, User, Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -37,11 +38,11 @@ const Header = () => {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#" className="text-foreground hover:text-primary transition-smooth">Home</a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-smooth">How It Works</a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-smooth">AI Engine</a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-smooth">Insights</a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-smooth">Contact</a>
+            <Link to="/" className="text-foreground hover:text-primary transition-smooth">Home</Link>
+            <Link to="/how-it-works" className="text-muted-foreground hover:text-primary transition-smooth">How It Works</Link>
+            <Link to="/ai-engine" className="text-muted-foreground hover:text-primary transition-smooth">AI Engine</Link>
+            <Link to="/insights" className="text-muted-foreground hover:text-primary transition-smooth">Insights</Link>
+            <Link to="/contact" className="text-muted-foreground hover:text-primary transition-smooth">Contact</Link>
           </nav>
 
           {/* Search Bar */}
@@ -104,9 +105,15 @@ const Header = () => {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem>Profile</DropdownMenuItem>
-                <DropdownMenuItem>Dashboard</DropdownMenuItem>
-                <DropdownMenuItem>Settings</DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/profile">Profile</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/dashboard">Dashboard</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/settings">Settings</Link>
+                </DropdownMenuItem>
                 <DropdownMenuItem>Logout</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
